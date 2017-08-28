@@ -6,27 +6,12 @@ lib-cov
 *.out
 *.pid
 *.gz
-*.swp
 
 pids
 logs
 results
-tmp
 
-#Build
-public/css/main.css
-
-# API keys and secrets
-.env
-
-# Dependency directory
+npm-debug.log
 node_modules
-bower_components
 
-# Editors
-.idea
-*.iml
-
-# OS metadata
-.DS_Store
-Thumbs.db
+public/libs
