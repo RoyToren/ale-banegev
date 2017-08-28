@@ -7,5 +7,6 @@ angular.module('phonecatApp', [
   'ngMaterial',
   'core',
   'phoneDetail',
-  'phoneList'
+  'phoneList',
+  'home'
 ]);

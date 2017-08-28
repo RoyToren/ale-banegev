@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app="phonecatApp">
+<html lang="he" dir="rtl">
   <head>
     <meta charset="utf-8">
     <title>Google Phone Gallery</title>
@@ -26,12 +26,31 @@
     <script src="phone-list/phone-list.component.js"></script>
     <script src="phone-detail/phone-detail.module.js"></script>
     <script src="phone-detail/phone-detail.component.js"></script>
+    <script src="home/home.module.js"></script>
+    <script src="home/home.component.js"></script>
   </head>
-  <body>
-
-    <div class="view-container">
-      <div ng-view class="view-frame"></div>
+  <body ng-app="phonecatApp" dir="rtl" >
+    <div class="container" dir="rtl">
+      
+      <!-- HEADER -->
+      <nav class="navbar navbar-inverse" dir="rtl">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">עלה בנגב</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a href="/#!/roomers">דיירים</a></li>
+          <li><a href="/#!/roomers">דייר חדש</a></li>
+        </ul>
+      </nav>
+    
+      <!-- ANGULAR DYNAMIC CONTENT -->
+      <div class="view-container">
+        <div ng-view class="view-frame"></div>
+      </div>
+    
     </div>
+
+   
 
   </body>
 </html>
