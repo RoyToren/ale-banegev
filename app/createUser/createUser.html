@@ -1,0 +1,98 @@
+
+<div class="container">
+        
+        <form class="form-horizontal">
+        
+          <ul class="nav nav-tabs" style="float:right;" >
+            <li ng-repeat="step in steps" ng-class="{active: $index==getCurrentStepIndex()}">
+              <a href="javascript:void(0)" ng-click="goToStep($index)">{{step}}</a>
+            </li>
+          </ul>
+          <div ng-switch on="selection">
+        
+            <!-- First Step -->
+            <div ng-switch-when="שלב 1: נתונים כללים">
+              <br><br><br>
+              <div class="row">
+                <div class="span4">
+                    <h5><b>פרטים בסיסיים</b></h5>
+                    <input type="text" class="form-control" placeholder="ת.זהות" />
+                    <input type="text" style="margin-top:10px;" class="form-control" placeholder="שם מלא" />
+                    <input type="number" style="margin-top:10px;" class="form-control" placeholder="גיל" />
+                    <input type="date" style="margin-top:10px;" class="form-control" placeholder="תאריך לידה" />
+                    <h5><b>כתובת מגורים</b></h5>
+                    <input type="text" style="margin-top:10px;" class="form-control" placeholder="עיר" />
+                    <input type="text" style="margin-top:10px;" class="form-control" placeholder="רחוב" />
+                    <input type="number" style="margin-top:10px;" class="form-control" placeholder="מספר" />
+                    <h5><b>דרכי התקשרות</b></h5>
+                    <input type="text" style="margin-top:10px;" class="form-control" placeholder="טלפון" />
+                    <input type="email" style="margin-top:10px;" class="form-control" placeholder="מייל" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Second Step -->
+            <div ng-switch-when="שלב 2: יכולות">
+                <br><br><br>
+                <div style="display:block;">
+                    <input type="text" class="form-control" placeholder="תקשורת" />
+                    <input type="text" style="margin-top:10px;" class="form-control" placeholder="אכילה" />
+                    <input type="text" style="margin-top:10px;" class="form-control" placeholder="הליכה" />
+                    <input type="text" style="margin-top:10px;" class="form-control" placeholder="שתייה" />
+                    <input type="text" style="margin-top:10px;" class="form-control" placeholder="רחצה" />
+                    <input type="text" style="margin-top:10px;" class="form-control" placeholder="שירותים" />
+                    <input type="text" style="margin-top:10px;" class="form-control" placeholder="לבוש" />
+                </div>
+            </div>
+        
+            <!-- Third Step -->
+            <div ng-switch-when="שלב 3: סיכונים">
+                    <br><br><br>
+                    <div style="display:block;text-align:center;">
+                        <input type="text" ng-model="RiskData.name" class="form-control" placeholder="סיכון" />
+                        <input type="text" ng-model="RiskData.prevent" style="margin-top:10px;" class="form-control" placeholder="דרכי מניעה" />
+                        <button style="margin:20px 0;" class="btn btn-primary btn-lg" ng-click="AddRisk(RiskData)">
+                                <span class="glyphicon glyphicon-plus-sign"></span> הוסף סיכון
+                        </button>
+                        <table class="table" ng-if="risks != null && risks.length > 0">
+                                <thead>
+                                  <tr>
+                                    <th style="text-align:center;">סיכון</th>
+                                    <th style="text-align:center;">דרכי מניעה</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr ng-repeat="risk in risks">
+                                    <td>{{risk.name}}</td>
+                                    <td>{{risk.prevent}}</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                    </div>
+            </div>
+
+            <!-- 4 Step -->
+            <div ng-switch-when="שלב 4: תחומי עניין">
+                    <br><br><br>
+                    <div style="display:block;">
+                        <input type="text" class="form-control" placeholder="דברים שאוהב לעשות" />
+                        <input type="text" style="margin-top:10px;" class="form-control" placeholder="מוזיקה אהובה" />
+                    </div>
+            </div>
+
+          <div class="clearfix"></div>
+          <ul class="pager pull-right">
+                <li class="" ng-class="{disabled: !hasNextStep()}">
+                    <a href="javascript:void(0);" ng-click="incrementStep()">שלב קודם &rarr;</a>
+                </li>
+            <li class="" ng-class="{disabled: !hasPreviousStep()}">
+              <a href="javascript:void(0);" ng-click="decrementStep()">&larr; שלב הבא</a>
+            </li>
+          </ul>
+          <div class="pull-left" ng-if="getCurrentStepIndex() == 0"><button style="margin:20px 0;" class="btn btn-success btn-lg">
+                <span class="glyphicon glyphicon-check"></span> סיים תהליך
+            </button></div>
+          <div class="clearfix"></div>
+        </form>
+        
+          </div>
