@@ -2,6 +2,7 @@
   "name": "starter-node-angular",
   "main": "server.js",
   "dependencies": {
+    "angular-material": "^1.1.4",
     "angular-wizard": "^1.1.1",
     "body-parser": "~1.4.2",
     "express": "~4.5.1",
