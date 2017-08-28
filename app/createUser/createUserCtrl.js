@@ -5,8 +5,8 @@ angular.
     module('createUser').
     component('createUser', {
         templateUrl: 'createUser/createUser.html',
-        controller: ['$scope',
-            function CreateUserController($scope) {
+        controller: ['$scope','Users',
+            function CreateUserController($scope,Users) {
                 $scope.User = {
                     id : ""
                  };
@@ -25,9 +25,9 @@ angular.
                     RiskData.prevention = "";
                 }
                 $scope.createUser = function () {
-                    var x = "kaki";
-                    $scope.kaki = {};
-                    x++;
+                Users.createUser($scope.User).then(function (data) {
+                          var x = data;
+                 });
                 }
                 $scope.selection = $scope.steps[3];
 
