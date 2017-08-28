@@ -16,17 +16,17 @@
               <div class="row">
                 <div class="span4">
                     <h5><b>פרטים בסיסיים</b></h5>
-                    <input type="text" class="form-control" placeholder="ת.זהות" />
-                    <input type="text" style="margin-top:10px;" class="form-control" placeholder="שם מלא" />
-                    <input type="number" style="margin-top:10px;" class="form-control" placeholder="גיל" />
-                    <input type="date" style="margin-top:10px;" class="form-control" placeholder="תאריך לידה" />
+                    <input type="text" class="form-control" placeholder="ת.זהות" ng-model="User.id" />
+                    <input type="text" style="margin-top:10px;" class="form-control" placeholder="שם מלא" ng-model="User.general.name" />
+                    <input type="number" style="margin-top:10px;" class="form-control" placeholder="גיל" ng-model="User.general.age" />
+                    <input type="date" style="margin-top:10px;" class="form-control" placeholder="תאריך לידה" ng-model="User.general.dateOfBirth" />
                     <h5><b>כתובת מגורים</b></h5>
-                    <input type="text" style="margin-top:10px;" class="form-control" placeholder="עיר" />
-                    <input type="text" style="margin-top:10px;" class="form-control" placeholder="רחוב" />
-                    <input type="number" style="margin-top:10px;" class="form-control" placeholder="מספר" />
+                    <input type="text" style="margin-top:10px;" class="form-control" placeholder="עיר" ng-model="User.general.address.city" />
+                    <input type="text" style="margin-top:10px;" class="form-control" placeholder="רחוב" ng-model="User.general.address.id" />
+                    <input type="number" style="margin-top:10px;" class="form-control" placeholder="מספר" ng-model="User.general.address.number" />
                     <h5><b>דרכי התקשרות</b></h5>
-                    <input type="text" style="margin-top:10px;" class="form-control" placeholder="טלפון" />
-                    <input type="email" style="margin-top:10px;" class="form-control" placeholder="מייל" />
+                    <input type="text" style="margin-top:10px;" class="form-control" placeholder="טלפון" ng-model="User.general.phone" />
+                    <input type="email" style="margin-top:10px;" class="form-control" placeholder="מייל" ng-model="User.general.email" />
               </div>
             </div>
           </div>
@@ -35,13 +35,13 @@
             <div ng-switch-when="שלב 2: יכולות">
                 <br><br><br>
                 <div style="display:block;">
-                    <input type="text" class="form-control" placeholder="תקשורת" />
-                    <input type="text" style="margin-top:10px;" class="form-control" placeholder="אכילה" />
-                    <input type="text" style="margin-top:10px;" class="form-control" placeholder="הליכה" />
-                    <input type="text" style="margin-top:10px;" class="form-control" placeholder="שתייה" />
-                    <input type="text" style="margin-top:10px;" class="form-control" placeholder="רחצה" />
-                    <input type="text" style="margin-top:10px;" class="form-control" placeholder="שירותים" />
-                    <input type="text" style="margin-top:10px;" class="form-control" placeholder="לבוש" />
+                    <input type="text" class="form-control" placeholder="תקשורת" ng-model="User.skills.communication"/>
+                    <input type="text" style="margin-top:10px;" class="form-control" placeholder="אכילה" ng-model="User.skills.eating" />
+                    <input type="text" style="margin-top:10px;" class="form-control" placeholder="הליכה" ng-model="User.skills.walking"/>
+                    <input type="text" style="margin-top:10px;" class="form-control" placeholder="שתייה" ng-model="User.skills.drinking"/>
+                    <input type="text" style="margin-top:10px;" class="form-control" placeholder="רחצה" ng-model="User.skills.bathing"/>
+                    <input type="text" style="margin-top:10px;" class="form-control" placeholder="שירותים" ng-model="User.skills.restroom"/>
+                    <input type="text" style="margin-top:10px;" class="form-control" placeholder="לבוש" ng-model="User.skills.gettingDressed"/>
                 </div>
             </div>
         
@@ -49,12 +49,12 @@
             <div ng-switch-when="שלב 3: סיכונים">
                     <br><br><br>
                     <div style="display:block;text-align:center;">
-                        <input type="text" ng-model="RiskData.name" class="form-control" placeholder="סיכון" />
-                        <input type="text" ng-model="RiskData.prevent" style="margin-top:10px;" class="form-control" placeholder="דרכי מניעה" />
+                        <input type="text"  class="form-control" placeholder="סיכון"ng-model= "RiskData.name"  />
+                        <input type="text"  style="margin-top:10px;" class="form-control" placeholder="דרכי מניעה" ng-model= "RiskData.prevention"/>
                         <button style="margin:20px 0;" class="btn btn-primary btn-lg" ng-click="AddRisk(RiskData)">
                                 <span class="glyphicon glyphicon-plus-sign"></span> הוסף סיכון
                         </button>
-                        <table class="table" ng-if="risks != null && risks.length > 0">
+                        <table class="table" ng-if="User.risks != null && User.risks.length > 0">
                                 <thead>
                                   <tr>
                                     <th style="text-align:center;">סיכון</th>
@@ -62,9 +62,9 @@
                                   </tr>
                                 </thead>
                                 <tbody>
-                                  <tr ng-repeat="risk in risks">
+                                  <tr ng-repeat="risk in User.risks">
                                     <td>{{risk.name}}</td>
-                                    <td>{{risk.prevent}}</td>
+                                    <td>{{risk.prevention}}</td>
                                   </tr>
                                 </tbody>
                               </table>
@@ -75,8 +75,8 @@
             <div ng-switch-when="שלב 4: תחומי עניין">
                     <br><br><br>
                     <div style="display:block;">
-                        <input type="text" class="form-control" placeholder="דברים שאוהב לעשות" />
-                        <input type="text" style="margin-top:10px;" class="form-control" placeholder="מוזיקה אהובה" />
+                        <input type="text" class="form-control" placeholder="דברים שאוהב לעשות" ng-model="User.intrests.hobbies" />
+                        <input type="text" style="margin-top:10px;" class="form-control" placeholder="מוזיקה אהובה" ng-model="User.intrests.favMusic" />
                     </div>
             </div>
 
@@ -89,7 +89,7 @@
               <a href="javascript:void(0);" ng-click="decrementStep()">&larr; שלב הבא</a>
             </li>
           </ul>
-          <div class="pull-left" ng-if="getCurrentStepIndex() == 0"><button style="margin:20px 0;" class="btn btn-success btn-lg">
+          <div class="pull-left" ng-if="getCurrentStepIndex() == 0"><button style="margin:20px 0;" class="btn btn-success btn-lg" ng-click="createUser()">
                 <span class="glyphicon glyphicon-check"></span> סיים תהליך
             </button></div>
           <div class="clearfix"></div>
