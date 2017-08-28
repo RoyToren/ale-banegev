@@ -4,15 +4,16 @@
           md-row-height-gt-md="1:1" md-row-height="4:3"
           md-gutter="8px" md-gutter-gt-sm="4px" >
   
-      <md-grid-tile ng-repeat="phone in $ctrl.renderedUsers"
+      <md-grid-tile ng-click="$ctrl.ChooseUser(phone)"
+                    ng-repeat="phone in $ctrl.renderedUsers"
                     md-rowspan="{{phone.span.row}}"
                     md-colspan="{{phone.span.col}}"
                     md-colspan-sm="1"
                     md-colspan-xs="1"
                     ng-class="black"
                     style="background:{{phone.background}}" >
+                    <a href="#!/roomers/{{phone.id}}">{{phone.title}}</a>
         <md-grid-tile-footer><h3>{{phone.title}}</h3></md-grid-tile-footer>
-        <a href="#!/roomers/{{phone.id}}">{{phone.title}}</a>
       </md-grid-tile>
     </md-grid-list>
   </div>

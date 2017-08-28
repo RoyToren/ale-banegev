@@ -11,6 +11,10 @@ component('phoneList', {
       this.orderProp = 'age';
       this.renderedUsers = RenderUsers(this.users);
 
+      this.ChooseUser = function (user) {
+      }
+
+
       function RenderUsers(users) {
         var renderedUsers = [];
         var renderedUser = {};
@@ -55,10 +59,10 @@ component('phoneList', {
               renderedUser.background = "purple";
               break;
             case 9:
-              renderedUser.background = "deepBlue";
+              renderedUser.background = "green";
               break;
             case 10:
-              renderedUser.background = "lightPurple";
+              renderedUser.background = "gray";
               break;
             case 11:
               renderedUser.background = "yellow";
