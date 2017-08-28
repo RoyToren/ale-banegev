@@ -5,23 +5,26 @@ angular.
 module('phoneList').
 component('phoneList', {
   templateUrl: 'phone-list/phone-list.template.html',
-  controller: ['Phone',
-    function PhoneListController(Phone) {
-      this.users = Phone.query();
+  controller: ['Users',
+    function PhoneListController(Users) {
+      var scope = this;
+
+      Users.GetAllUsersAjax().then(function (data) {
+        scope.users = data.data;
+        scope.renderedUsers = RenderUsers(scope.users);
+      });
+
       this.orderProp = 'age';
-      this.renderedUsers = RenderUsers(this.users);
-
-      this.ChooseUser = function (user) {
-      }
-
+      this.ChooseUser = function (user) {};
 
       function RenderUsers(users) {
         var renderedUsers = [];
         var renderedUser = {};
 
-        for (var j = 0; j < 11; j++) {
+        // for (var j = 0; j < 11; j++) {
+        for (var j = 0; j < users.length; j++) {
           renderedUser = {};
-          renderedUser.title = "Number " + (j + 1);
+          renderedUser.title = users[j].name.first + ' ' + users[j].name.last;
           renderedUser.span = {
             row: 1,
             col: 1

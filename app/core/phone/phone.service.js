@@ -2,20 +2,31 @@
 
 angular.
 module('core.phone').
-factory('Phone', ['$resource',
-  function ($resource) {
-
-    var GetAllUsers = function () {
-
-      return $resource('phones/:phoneId.json', {}, {
+factory('Users', ['$resource', '$http', '$q',
+  function ($resource, $http, $q) {
+    var factory = {};
+    factory.GetAllUsers = function () {
+      return $resource('https://ale-banegev.herokuapp.com/getGuardians', {}, {
+        get: {
           query: {
             method: 'GET',
-            params: {
-              phoneId: 'phones'
-            },
-            isArray: true
+            responseMethod: "JSON"
           }
+        }
+      });
+    };
+
+    factory.GetAllUsersAjax = function () {
+      var deferred = $q.defer();
+      $http.get('https://ale-banegev.herokuapp.com/getGuardians')
+        .then(function (success) {
+          deferred.resolve(success);
+        }, function (error) {
+          deferred.resolve(error);
         });
-      };
+        return deferred.promise;
+    }
+
+    return factory;
   }
 ]);
