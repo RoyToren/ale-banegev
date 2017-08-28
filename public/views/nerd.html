@@ -1,5 +1,17 @@
 <div class="jumbotron text-center">
-	<h1>דד and Proud</h1>
+	<h2 style="margin-bottom:40px;">דיירים</h2>
 
-	<p>{{ tagline }}</p>
+	<input type="text" class="form-control" placeholder="חפש דייר" ng-model="searchroomer" />
+
+	<div style="margin-top:10px;" class="list-group" ng-repeat="roomer in roomers | filter:{name:searchroomer}">
+		<a class="list-group-item" ng-click="RoomerSelected(roomer)">
+			<div class="row">
+				<img ng-src="http://icons.iconarchive.com/icons/martin-berube/people/256/kid-icon.png"
+				style="max-height:130px;border: 2px solid grey;border-radius:25px;" />
+				<h3 >{{ roomer.name }}</h3>
+				<h4>גיל: {{roomer.age}}</h4>
+				<h4 style="color:red;">{{roomer.info}}</h4>
+			</div>
+		</a>
+	</div>
 </div>
