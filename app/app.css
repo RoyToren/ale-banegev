@@ -2,7 +2,15 @@ body {
   padding: 20px;
   background-image: url("img/background.jpg");
 }
+.logo {
+width:25px;
+height: 25px;
+float:right;
+}
 
+.logo-title {
+  margin-left:10px;
+}
 h1 {
   border-bottom: 1px solid gray;
   margin-top: 0;
