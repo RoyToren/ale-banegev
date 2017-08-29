@@ -5,11 +5,11 @@ angular.
     module('userDetail').
     component('userDetail', {
         templateUrl: 'userDetail/userDetail.html',
-        controller: ['$scope','Users',
-            function UserDetailController($scope,Users) {
-                $scope.User = {
-                    id : ""
-                 };
+        controller: ['$scope','Users','$routeParams',
+            function UserDetailController($scope,Users,$routeParams) {
+                Users.getUser($routeParams.phoneId).then(function (data) {
+                                $scope.User = data.data;
+                });
                 $scope.steps = [
                     'שלב 4: תחומי עניין',
                     'שלב 3: סיכונים',
