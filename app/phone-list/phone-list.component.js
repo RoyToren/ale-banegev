@@ -5,8 +5,8 @@ angular.
 module('phoneList').
 component('phoneList', {
   templateUrl: 'phone-list/phone-list.template.html',
-  controller: ['Users', '$scope',
-    function PhoneListController(Users, $scope) {
+  controller: ['Users', '$scope', '$routeParams',
+    function PhoneListController(Users, $scope, $routeParams) {
       var scope = this;
       this.filteredRooms = []
       this.currentPage = 1

@@ -18,6 +18,8 @@
     "jquery": "~3.2.1",
   	"angular-bootstrap": "latest",
   	"angular-ui-select": "latest",
+    "angular-qrcode": "latest",
+    "angular-qr": "latest",
   	"angular-sanitize": "latest"
   },
   "resolutions": {
