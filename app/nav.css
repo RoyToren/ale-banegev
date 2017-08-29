@@ -1,0 +1,139 @@
+/* --- VARS --- */
+/* --- MIXINS --- */
+/* --- DEMO CONTENT--- */
+.navbar-menu {
+  border: 0;
+  border-radius: 0;
+}
+.navbar-menu .navbar-collapse {
+  padding: 0;
+  border-top: 0;
+}
+.navbar-main {
+  margin: 0;
+}
+.navbar-menu {
+  background-color: rgba(36, 170, 47, 0.71);
+}
+.navbar-menu .navbar-header {
+  padding: 7px;
+}
+.navbar-main > li > a {
+  font-size: 25px;
+  font-weight: 900;
+  color: #ffffff;
+  text-transform: uppercase;
+  -webkit-transition: 0.2s color ease-in-out;
+  transition: 0.2s color ease-in-out;
+  -webkit-transition: 0.2s background ease-in-out;
+  transition: 0.2s background ease-in-out;
+}
+.navbar-main > li > a small {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 300;
+  text-transform: none;
+}
+.navbar-main > li > a:hover,
+.navbar-main > li > a:focus,
+.navbar-main > li > a.active {
+  background-color: #ffffff;
+  color: rgba(5, 108, 13, 0.71);
+}
+.navbar-main > li > a:hover small,
+.navbar-main > li > a:focus small,
+.navbar-main > li > a.active small {
+  color: #000;
+}
+@media (min-width: 768px) {
+  .navbar-main-container {
+    background-color: rgba(36, 170, 47, 0.71);
+    background-repeat: repeat-x;
+    background-image: -webkit-gradient(linear, 50% top, 50% top, from(rgba(36, 170, 47, 0.71)), to(rgba(5, 108, 13, 0.71)));
+    background-image: -webkit-linear-gradient(right, color-stop(rgba(36, 170, 47, 0.71) 50%), color-stop(rgba(5, 108, 13, 0.71) 50%));
+    background-image: -moz-linear-gradient(left, rgba(36, 170, 47, 0.71) 50%, rgba(5, 108, 13, 0.71) 50%);
+    background-image: linear-gradient(to left, rgba(36, 170, 47, 0.71) 50%, rgba(5, 108, 13, 0.71) 50%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='rgba(36, 170, 47, 0.71)', endColorstr='rgba(5, 108, 13, 0.71)', GradientType=1);
+    /* IE6-9 */
+  }
+  .navbar-main-container .navbar-nav {
+    float: none;
+  }
+  .navbar-main {
+    margin: 0 auto;
+    padding-right: 40px;
+    max-width: 730px;
+  }
+  .navbar-main li {
+    display: inline-block;
+    height: 80px;
+    position: relative;
+    width: 33.3%;
+    background-color: rgba(5, 108, 13, 0.71);
+    background-repeat: repeat-x;
+    background-image: -webkit-gradient(linear, 0% top, 100% top, from(rgba(5, 108, 13, 0.71)), to(rgba(36, 170, 47, 0.71)));
+    background-image: -webkit-linear-gradient(right, color-stop(rgba(5, 108, 13, 0.71) 0%), color-stop(rgba(36, 170, 47, 0.71) 100%));
+    background-image: -moz-linear-gradient(left, rgba(5, 108, 13, 0.71) 0%, rgba(36, 170, 47, 0.71) 100%);
+    background-image: linear-gradient(to left, rgba(5, 108, 13, 0.71) 0%, rgba(36, 170, 47, 0.71) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='rgba(5, 108, 13, 0.71)', endColorstr='rgba(36, 170, 47, 0.71)', GradientType=1);
+    /* IE6-9 */
+  }
+  .navbar-main li:first-child:before {
+    border: 40px solid transparent;
+    border-left-color: rgba(36, 170, 47, 0.71);
+    border-left: 0;
+    content: " ";
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0px;
+    width: 0px;
+    z-index: 10;
+  }
+  .navbar-main li a {
+    display: table;
+    height: 100%;
+    padding: 0 0 0 66.66666667px;
+    position: relative;
+    width: 100%;
+  }
+  .navbar-main li a:after {
+    border: 40px solid transparent;
+    border-left-color: rgba(36, 170, 47, 0.71);
+    border-left: 0;
+    content: " ";
+    display: 'block';
+    position: absolute;
+    left: -40px;
+    top: 0px;
+    width: 0px;
+    z-index: 10;
+    -webkit-transition: 0.2s border-color ease-in-out;
+    transition: 0.2s border-color ease-in-out;
+  }
+  .navbar-main li a:hover,
+  .navbar-main li a.active {
+    border-left-color: #ffffff;
+  }
+  .navbar-main li a:hover:after,
+  .navbar-main li a.active:after {
+    border-right-color: #ffffff;
+    border-left-color: black;
+  }
+  .navbar-main li a:hover:before,
+  .navbar-main li a.active:before {
+    border-left-color: black;
+  }
+  .navbar-main li a span {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+@media (min-width: 992px) {
+  .navbar-main {
+    max-width: 980px;
+  }
+  .navbar-main li a {
+    padding: 0 0 0 80px;
+  }
+}

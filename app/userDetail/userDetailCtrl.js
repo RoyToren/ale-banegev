@@ -2,11 +2,11 @@
 
 // Register `phoneList` component, along with its associated controller and template
 angular.
-    module('createUser').
-    component('createUser', {
-        templateUrl: 'createUser/createUser.html',
+    module('userDetail').
+    component('userDetail', {
+        templateUrl: 'userDetail/userDetail.html',
         controller: ['$scope','Users',
-            function CreateUserController($scope,Users) {
+            function UserDetailController($scope,Users) {
                 $scope.User = {
                     id : ""
                  };
