@@ -5,13 +5,24 @@ angular.
 module('phoneList').
 component('phoneList', {
   templateUrl: 'phone-list/phone-list.template.html',
-  controller: ['Users',
-    function PhoneListController(Users) {
+  controller: ['Users', '$scope',
+    function PhoneListController(Users, $scope) {
       var scope = this;
+      this.filteredRooms = []
+      this.currentPage = 1
+      this.numPerPage = 11
+      this.maxSize = 100;
 
       Users.GetAllUsersAjax().then(function (data) {
         scope.users = data.data;
         scope.renderedUsers = RenderUsers(scope.users);
+
+        $scope.$watch("currentPage + numPerPage", function() {
+          var begin = ((scope.currentPage - 1) * scope.numPerPage)
+          , end = begin + scope.numPerPage;
+      
+          scope.filteredRooms = scope.renderedUsers.slice(begin, end);
+        });
       });
 
       this.orderProp = 'age';
@@ -24,7 +35,10 @@ component('phoneList', {
         // for (var j = 0; j < 11; j++) {
         for (var j = 0; j < users.length; j++) {
           renderedUser = {};
-          renderedUser.title = users[j].name.first + ' ' + users[j].name.last;
+          if (users[j].general.firstName && users[j].general.lastName) {
+
+            renderedUser.title = users[j].general.firstName + ' ' + users[j].general.lastName;
+          }
           renderedUser.span = {
             row: 1,
             col: 1

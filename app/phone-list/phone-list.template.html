@@ -5,7 +5,7 @@
           md-gutter="8px" md-gutter-gt-sm="4px" >
   
       <md-grid-tile ng-click="$ctrl.ChooseUser(phone)"
-                    ng-repeat="phone in $ctrl.renderedUsers"
+                    ng-repeat="phone in $ctrl.filteredRooms"
                     md-rowspan="{{phone.span.row}}"
                     md-colspan="{{phone.span.col}}"
                     md-colspan-sm="1"
@@ -16,5 +16,18 @@
         <md-grid-tile-footer><h3>{{phone.title}}</h3></md-grid-tile-footer>
       </md-grid-tile>
     </md-grid-list>
-  </div>
+
+    <pagination
+    ng-model="currentPage"
+    total-items="renderedUsers.length"
+    max-size="maxSize">
+  </pagination> 
+
   
+  <pager
+  ng-model="currentPage"
+  total-items="renderedUsers.length"
+  max-size="maxSize">
+</pager> 
+
+  </div>
