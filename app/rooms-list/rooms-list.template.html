@@ -13,7 +13,7 @@
                     ng-class="black"
                     style="background-color:{{phone.background}}" >
                     <a href="#!/userDetail/{{phone.id}}">{{phone.title}}</a>
-        <md-grid-tile-footer><h3>{{phone.title}}</h3></md-grid-tile-footer>
+        <md-grid-tile-footer><h3>מספר אנשים בחדר: {{phone.people ? phone.people.length : 0}}</h3></md-grid-tile-footer>
       </md-grid-tile>
     </md-grid-list>
 
