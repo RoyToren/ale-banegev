@@ -9,7 +9,15 @@
                     <br><br><br>
                     <div style="display:block;">
                         <input type="text" class="form-control" placeholder="מספר חדר" ng-model="Room.id" />
-                        <select ng-options="user as user.general.firstName + ' ' + user.general.lastName for user in users track by user.id" ng-model="selected" multiple="true" required="true" class="form-control" ng-model="Room.users"></select>
+                   
+        
+                         <label for="multipleSelect"> Multiple select: </label><br>
+                        <select class="form-control" id="multipleSelect" ng-model="Room.users" multiple>
+                            <option ng-repeat="user in users" value="{{user.id}}">{{user.general.firstName}} {{user.general.lastName}}</option>
+    </select><br>
+                        
+                        
+                        
                     </div>
             </div>
               
