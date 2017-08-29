@@ -12,6 +12,7 @@ angular.module('phonecatApp', [
   'createUser',
   'removeUser',
   'createRoom',
+  'userDetail',
   'ui.bootstrap',
   'ui.select',
   'ngSanitize'

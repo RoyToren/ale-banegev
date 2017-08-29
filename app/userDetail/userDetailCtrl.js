@@ -8,7 +8,7 @@ angular.
         controller: ['$scope','Users','$routeParams',
             function UserDetailController($scope,Users,$routeParams) {
                 Users.getUser($routeParams.phoneId).then(function (data) {
-                                $scope.User = data.data;
+                                $scope.User = data.data[0];
                 });
                 $scope.steps = [
                     'שלב 4: תחומי עניין',
@@ -16,29 +16,7 @@ angular.
                     'שלב 2: יכולות',
                     'שלב 1: נתונים כללים',
                 ];
-                $scope.AddRisk = function (RiskData) {
-                    if ($scope.User.risks == null) {
-                        $scope.User.risks = [];
-                    }
-                    $scope.User.risks.push(angular.copy(RiskData));
-                    RiskData.name= "";
-                    RiskData.prevention = "";
-                }
-                $scope.createUser = function () {
-                    if($scope.User && $scope.User.id && $scope.User.id != null)
-                    {
-                Users.createUser($scope.User).then(function (data) {
-                                $scope.User = {
-                    id : ""
-                 };
-                });
-                $scope.selection = $scope.steps[0];
-                    }
-                    else
-                    {
-                        window.alert("אנא הכנס תעודה מזהה");
-                    }
-                }
+                
                 $scope.selection = $scope.steps[3];
 
                 $scope.getCurrentStepIndex = function () {
