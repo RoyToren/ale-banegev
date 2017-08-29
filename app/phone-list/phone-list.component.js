@@ -12,10 +12,10 @@ component('phoneList', {
       this.currentPage = 1
       this.numPerPage = 11
       this.maxSize = 100;
-      this.pageChanged = function() {
-        var begin = ((scope.currentPage - 1) * scope.numPerPage)
-        , end = begin + scope.numPerPage;
-    
+      this.pageChanged = function () {
+        var begin = ((scope.currentPage - 1) * scope.numPerPage),
+          end = begin + scope.numPerPage;
+
         scope.filteredRooms = scope.renderedUsers.slice(begin, end);
       }
       Users.GetAllUsersAjax().then(function (data) {
@@ -34,11 +34,13 @@ component('phoneList', {
         // for (var j = 0; j < 11; j++) {
         for (var j = 0; j < users.length; j++) {
           renderedUser = {};
-          if (users[j] && users[j].general && users[j].general.firstName && users[j].general.lastName) {
+          if (users[j].general) {
+            if (users[j].general.firstName && users[j].general.lastName) {
 
-            renderedUser.title = users[j].general.firstName + ' ' + users[j].general.lastName;
-            renderedUser.id = users[j].id;
+              renderedUser.title = users[j].general.firstName + ' ' + users[j].general.lastName;
+            }
           }
+
           renderedUser.span = {
             row: 1,
             col: 1
@@ -70,7 +72,7 @@ component('phoneList', {
               renderedUser.background = "rgba(255,192,203,0.7)";
               break;
             case 7:
-              renderedUser.background =  "rgba(255,0,0,0.7)";
+              renderedUser.background = "rgba(255,0,0,0.7)";
               break;
             case 8:
               renderedUser.background = "rgba(128,0,128,0.7)";
