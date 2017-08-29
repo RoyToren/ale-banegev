@@ -18,5 +18,6 @@ angular.module('phonecatApp', [
   'ui.select',
   'monospaced.qrcode',
   'ja.qr',
-  'ngSanitize'
+  'ngSanitize',
+  'roomUsers'
 ]);

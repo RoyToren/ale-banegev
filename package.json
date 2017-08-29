@@ -16,6 +16,7 @@
     "protractor": "^4.0.9"
   },
   "scripts": {
+    "postinstall": "bower install && grunt build",
     "start": "http-server ./app -a localhost -p 8000 -c-1",
     "pretest": "npm install",
     "test": "karma start karma.conf.js",
