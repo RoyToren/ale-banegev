@@ -19,6 +19,9 @@ angular.
         when('/createUser', {
           template: '<create-user></create-user>'
         }).
+       when('/createRoom', {
+          template: '<create-room></create-room>'
+        }).
         otherwise('/');
     }
   ]);

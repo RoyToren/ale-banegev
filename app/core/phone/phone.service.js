@@ -27,6 +27,17 @@ factory('Users', ['$resource', '$http', '$q',
         });
         return deferred.promise;
     }
+    
+    factory.createRoom = function (room) {
+      var deferred = $q.defer();
+      $http.post('https://ale-banegev.herokuapp.com/addRoom',room)
+        .then(function (success) {
+          deferred.resolve(success);
+        }, function (error) {
+          deferred.resolve(error);
+        });
+        return deferred.promise;
+    }
 
     return factory;
   }

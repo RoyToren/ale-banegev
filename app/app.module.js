@@ -9,5 +9,6 @@ angular.module('phonecatApp', [
   'phoneDetail',
   'phoneList',
   'home',
-  'createUser'
+  'createUser',
+    'createRoom'
 ]);
