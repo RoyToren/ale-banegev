@@ -3,11 +3,21 @@
     
     <form class="form-horizontal">
 
-        <div class="dropdown">
-            
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <li ng-repeat="a in $ctrl.users"><a href="#">{{a.general.firstName}}<li>
-            <ul>
-        <div>
+     
     </form>
 </div>
+
+<ui-select ng-model="$ctrl.selectedUser" theme="select2" ng-disabled="ctrl.disabled" style="min-width: 300px;" title="Choose a person">
+  <ui-select-match placeholder="בחר לפי שם פרטי או משפחה">{{$ctrl.selectedUser ? $ctrl.selectedUser.general.firstName + ' ' +  $ctrl.selectedUser.general.lastName + ' (' + $ctrl.selectedUser.id + ')' : "לא נבחר"}}</ui-select-match>
+  <ui-select-choices repeat="person in $ctrl.users">
+    <div ng-bind-html="person.general.firstName | highlight: $select.search"></div>
+    <small>
+     {{person.general.firstName}}
+     {{person.general.lastName}} 
+     (   {{person.id}})
+     <span ng-bind-html="''+person.age | highlight: $select.search"></span>
+    </small>
+  </ui-select-choices>
+</ui-select>
+
+<button class='btn btn-danger' ng-click='$ctrl.deleteUser()' >מחק דייר</button>
