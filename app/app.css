@@ -8,6 +8,15 @@ height: 25px;
 float:right;
 }
 
+.btn-block {
+  padding: 10% 0; 
+  font-size: 3em;
+}
+
+.btn-lg.round {
+border-radius: 15px 50px;
+}
+
 .logo-title {
   margin-left:10px;
 }
