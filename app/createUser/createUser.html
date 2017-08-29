@@ -16,8 +16,9 @@
               <div class="row">
                 <div class="span4">
                     <h5><b>פרטים בסיסיים</b></h5>
-                    <input type="text" class="form-control" placeholder="ת.זהות" ng-model="User.id" />
-                    <input type="text" style="margin-top:10px;" class="form-control" placeholder="שם מלא" ng-model="User.general.name" />
+                    <input type="text" required class="form-control" placeholder="ת.זהות" ng-model="User.id" />
+                    <input type="text" style="margin-top:10px;" class="form-control" placeholder="שם פרטי" ng-model="User.general.firstName" />
+                    <input type="text" style="margin-top:10px;" class="form-control" placeholder="שם משפחה" ng-model="User.general.lastName" />
                     <input type="number" style="margin-top:10px;" class="form-control" placeholder="גיל" ng-model="User.general.age" />
                     <input type="date" style="margin-top:10px;" class="form-control" placeholder="תאריך לידה" ng-model="User.general.dateOfBirth" />
                     <h5><b>כתובת מגורים</b></h5>

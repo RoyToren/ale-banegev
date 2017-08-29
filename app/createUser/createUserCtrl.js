@@ -25,9 +25,19 @@ angular.
                     RiskData.prevention = "";
                 }
                 $scope.createUser = function () {
+                    if($scope.User && $scope.User.id && $scope.User.id != null)
+                    {
                 Users.createUser($scope.User).then(function (data) {
-                          var x = data;
-                 });
+                   /*                 $scope.User = {
+                    id : ""
+                 };*/
+                });
+                //$scope.selection = $scope.steps[0];
+                    }
+                    else
+                    {
+                        window.alert("אנא הכנס תעודה מזהה");
+                    }
                 }
                 $scope.selection = $scope.steps[3];
 
