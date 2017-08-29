@@ -1,6 +1,7 @@
 'use strict';
 
 // Register `roomsList` component, along with its associated controller and template
+//...s
 angular.
 module('roomsList').
 component('roomsList', {
