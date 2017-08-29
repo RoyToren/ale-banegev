@@ -62,9 +62,9 @@ factory('Users', ['$resource', '$http', '$q',
         return deferred.promise;
     }
 
-      factory.getUser = function (id) {
+      factory.getUser = function (idUser) {
       var deferred = $q.defer();
-      $http.post('https://ale-banegev.herokuapp.com/findGuardian',id)
+      $http.post('https://ale-banegev.herokuapp.com/findGuardian',{id: idUser})
         .then(function (success) {
           deferred.resolve(success);
         }, function (error) {
