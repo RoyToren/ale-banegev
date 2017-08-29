@@ -40,7 +40,7 @@ component('roomsList', {
             renderedUser = {};
             if (users[j]) {
               if (users[j].id) {
-                renderedUser.title = 'חדר מס ' + users[j].id;
+                renderedUser.title = users[j].id;
                  renderedUser.id = users[j].id;
                  if(users[j].users)
                  {
