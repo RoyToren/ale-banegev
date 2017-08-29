@@ -10,6 +10,9 @@ angular.
         when('/roomers', {
           template: '<phone-list></phone-list>'
         }).
+        when('/remove-user', {
+          template: '<remove-user></remove-user>'
+        }).
         when('/roomers/:phoneId', {
           template: '<phone-detail></phone-detail>'
         }).

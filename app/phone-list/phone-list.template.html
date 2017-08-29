@@ -11,23 +11,24 @@
                     md-colspan-sm="1"
                     md-colspan-xs="1"
                     ng-class="black"
-                    style="background:{{phone.background}}" >
+                    style="background-color:{{phone.background}}" >
                     <a href="#!/roomers/{{phone.id}}">{{phone.title}}</a>
         <md-grid-tile-footer><h3>{{phone.title}}</h3></md-grid-tile-footer>
       </md-grid-tile>
     </md-grid-list>
 
-    <pagination
-    ng-model="currentPage"
-    total-items="renderedUsers.length"
-    max-size="maxSize">
-  </pagination> 
-
-  
-  <pager
-  ng-model="currentPage"
-  total-items="renderedUsers.length"
-  max-size="maxSize">
-</pager> 
+    <center>
+      <ul uib-pagination
+      ng-model="$ctrl.currentPage"
+      total-items="$ctrl.renderedUsers.length"
+      max-size="$ctrl.maxSize"
+      ng-change="$ctrl.pageChanged()"
+      previous-text='הקודם'
+      next-text='הבא'
+      first-text="הראשון"
+      last-text="האחרון"
+      boundary-links="true">
+    </ul> 
+    </center>
 
   </div>

@@ -28,6 +28,17 @@ factory('Users', ['$resource', '$http', '$q',
         return deferred.promise;
     }
 
+    factory.removeUser = function (id) {
+      var deferred = $q.defer();
+      $http.post('https://ale-banegev.herokuapp.com/removeGuardian/',id)
+        .then(function (success) {
+          deferred.resolve(success);
+        }, function (error) {
+          deferred.resolve(error);
+        });
+        return deferred.promise;
+    }
+
     return factory;
   }
 ]);

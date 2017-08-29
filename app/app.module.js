@@ -10,5 +10,6 @@ angular.module('phonecatApp', [
   'phoneList',
   'home',
   'createUser',
+  'removeUser',
   'ui.bootstrap'
 ]);
