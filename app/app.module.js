@@ -8,6 +8,7 @@ angular.module('phonecatApp', [
   'core',
   'phoneDetail',
   'phoneList',
+  'roomsList',
   'home',
   'createUser',
   'removeUser',
