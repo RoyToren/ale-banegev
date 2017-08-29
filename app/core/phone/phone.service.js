@@ -27,10 +27,32 @@ factory('Users', ['$resource', '$http', '$q',
         });
         return deferred.promise;
     }
+    
+    factory.createRoom = function (room) {
+      var deferred = $q.defer();
+      $http.post('https://ale-banegev.herokuapp.com/addRoom',room)
+        .then(function (success) {
+          deferred.resolve(success);
+        }, function (error) {
+          deferred.resolve(error);
+        });
+        return deferred.promise;
+    }
 
     factory.removeUser = function (idUser) {
       var deferred = $q.defer();
       $http.post('https://ale-banegev.herokuapp.com/removeGuardian/',{id: idUser})
+        .then(function (success) {
+          deferred.resolve(success);
+        }, function (error) {
+          deferred.resolve(error);
+        });
+        return deferred.promise;
+    }
+
+      factory.getUser = function (id) {
+      var deferred = $q.defer();
+      $http.post('https://ale-banegev.herokuapp.com/findGuardian',id)
         .then(function (success) {
           deferred.resolve(success);
         }, function (error) {

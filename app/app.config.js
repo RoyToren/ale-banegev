@@ -13,14 +13,17 @@ angular.
         when('/remove-user', {
           template: '<remove-user></remove-user>'
         }).
-        when('/roomers/:phoneId', {
-          template: '<phone-detail></phone-detail>'
+        when('/userDetail/:phoneId', {
+          template: '<user-detail></user-detail>'
         }).
         when('/', {
           template: '<home></home>'
         }).
         when('/createUser', {
           template: '<create-user></create-user>'
+        }).
+       when('/createRoom', {
+          template: '<create-room></create-room>'
         }).
         otherwise('/');
     }
