@@ -13,6 +13,23 @@ float:right;
   font-size: 3em;
 }
 
+.childimage {
+  width:10em;
+  height: 10em;
+  border: 10px solid transparent;
+}
+
+.childimageWidthBig {
+  width:25em;
+  height: 11em;
+  border: 10px solid transparent;
+}
+.childimageBig {
+  width:20em;
+  height: 20em;
+  border: 10px solid transparent;
+}
+
 .btn-lg.round {
 border-radius: 15px 50px;
 }
