@@ -31,6 +31,8 @@ component('phoneList', {
         var renderedUsers = [];
         var renderedUser = {};
 
+        if(users) {
+
         // for (var j = 0; j < 11; j++) {
         for (var j = 0; j < users.length; j++) {
           renderedUser = {};
@@ -102,6 +104,7 @@ component('phoneList', {
 
         return renderedUsers;
       }
+    }
     }
   ]
 });

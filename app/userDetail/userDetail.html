@@ -98,14 +98,7 @@
       </div>
 
       <div class="clearfix"></div>
-      <ul class="pager pull-right">
-        <li class="" ng-class="{disabled: !hasNextStep()}">
-          <a href="javascript:void(0);" ng-click="incrementStep()">שלב קודם &rarr;</a>
-        </li>
-        <li class="" ng-class="{disabled: !hasPreviousStep()}">
-          <a href="javascript:void(0);" ng-click="decrementStep()">&larr; שלב הבא</a>
-        </li>
-      </ul>
+
       <div class="pull-left" ng-if="getCurrentStepIndex() == 0">
         <button style="margin:20px 0;" class="btn btn-success btn-lg" ng-click="toggleQR()">
                 <span class="glyphicon glyphicon-qrcode"></span> הצג QR
