@@ -37,6 +37,7 @@ component('phoneList', {
           if (users[j].general.firstName && users[j].general.lastName) {
 
             renderedUser.title = users[j].general.firstName + ' ' + users[j].general.lastName;
+            renderedUser.id = users[j].general.id;
           }
           renderedUser.span = {
             row: 1,
