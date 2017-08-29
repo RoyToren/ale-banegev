@@ -6,8 +6,7 @@ angular.
     component('createRoom', {
         templateUrl: 'createRoom/createRoom.html',
         controller: ['$scope','Users',
-            function CreateRoomController($scope,$window, Users) {
-
+            function CreateRoomController($scope, Users) {
             Users.GetAllUsersAjax().then(function (data) {
             $scope.users = data.data;
             
