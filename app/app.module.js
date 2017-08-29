@@ -16,5 +16,7 @@ angular.module('phonecatApp', [
   'userDetail',
   'ui.bootstrap',
   'ui.select',
+  'monospaced.qrcode',
+  'ja.qr',
   'ngSanitize'
 ]);

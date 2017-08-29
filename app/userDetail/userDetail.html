@@ -78,6 +78,7 @@
                         <input type="text" ng-disabled="true" class="form-control" placeholder="דברים שאוהב לעשות" ng-model="User.intrests.hobbies" />
                         <input type="text" ng-disabled="true" style="margin-top:10px;" class="form-control" placeholder="מוזיקה אהובה" ng-model="User.intrests.favMusic" />
                     </div>
+
             </div>
 
           <div class="clearfix"></div>
@@ -91,7 +92,11 @@
           </ul>
                     <div class="pull-left" ng-if="getCurrentStepIndex() == 0"><button style="margin:20px 0;" class="btn btn-success btn-lg" ng-click="createUser()">
                 <span class="glyphicon glyphicon-qrcode"></span> הדפס QR
-            </button></div>
+              
+                
+            </button>
+            <qrcode data="http://example.com" href="http://example.com"></qrcode>
+          </div>
           <div class="clearfix"></div>
         </form>
         
