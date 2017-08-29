@@ -5,8 +5,8 @@ angular.
 module('roomsList').
 component('roomsList', {
   templateUrl: 'rooms-list/rooms-list.template.html',
-  controller: ['Users', '$scope',
-    function RoomsListController(Users, $scope) {
+  controller: ['Users', '$scope','$location',
+    function RoomsListController(Users, $scope,$location) {
       var scope = this;
       this.filteredRooms = []
       this.currentPage = 1
@@ -25,20 +25,27 @@ component('roomsList', {
       });
 
       this.orderProp = 'age';
-      this.ChooseUser = function (user) {};
+      this.ChooseRoom = function (room) {
+        Users.setCurrRoomUsers(room.users);
+        $location.path( "/roomUsers/"+room.id );
+      };
 
       function RenderRooms(users) {
         var renderedRooms = [];
         var renderedUser = {};
 
         if (users) {
-
-          // for (var j = 0; j < 11; j++) {
           for (var j = 0; j < users.length ? users.length : 0; j++) {
             renderedUser = {};
             if (users[j]) {
               if (users[j].id) {
                 renderedUser.title = 'חדר מס ' + users[j].id;
+                 renderedUser.id = users[j].id;
+                 if(users[j].users)
+                 {
+                    renderedUser.length = users[j].users.length;
+                    renderedUser.users = users[j].users;
+                 }
               }
             }
 

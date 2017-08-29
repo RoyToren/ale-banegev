@@ -28,6 +28,9 @@ angular.
        when('/createRoom', {
           template: '<create-room></create-room>'
         }).
+        when('/roomUsers/:roomId', {
+          template: '<room-users></room-users>'
+        }).
         otherwise('/');
     }
   ]);

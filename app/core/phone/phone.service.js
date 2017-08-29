@@ -5,7 +5,14 @@ module('core.phone').
 factory('Users', ['$resource', '$http', '$q',
   function ($resource, $http, $q) {
     var factory = {};
+    factory.currRoomUsers = undefined;
+    factory.getCurrRoomUsers = function() {
+        return factory.currRoomUsers;
+    };
 
+    factory.setCurrRoomUsers = function(users) {
+        factory.currRoomUsers = users;
+    };
     factory.GetAllUsersAjax = function () {
       var deferred = $q.defer();
       $http.get('https://ale-banegev.herokuapp.com/getGuardians')

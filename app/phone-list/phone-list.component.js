@@ -25,7 +25,6 @@ component('phoneList', {
       });
 
       this.orderProp = 'age';
-      this.ChooseUser = function (user) {};
 
       function RenderUsers(users) {
         var renderedUsers = [];
