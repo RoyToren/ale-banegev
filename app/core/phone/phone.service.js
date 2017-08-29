@@ -28,9 +28,9 @@ factory('Users', ['$resource', '$http', '$q',
         return deferred.promise;
     }
 
-    factory.removeUser = function (id) {
+    factory.removeUser = function (idUser) {
       var deferred = $q.defer();
-      $http.post('https://ale-banegev.herokuapp.com/removeGuardian/',id)
+      $http.post('https://ale-banegev.herokuapp.com/removeGuardian/',{id: idUser})
         .then(function (success) {
           deferred.resolve(success);
         }, function (error) {
